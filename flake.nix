@@ -18,7 +18,7 @@
       };
       apps.default = {
 	      type = "app";
-	      program = "${self.packages."${system}".default}/lib/node_modules/open-grapher/main.js";
+	      program = "${self.packages."${system}".default}/lib/node_modules/open-grapher/index.js";
       };
     });
 }

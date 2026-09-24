@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import ogs from 'open-graph-scraper'
 const promises = []
 process.stdin.setEncoding('utf-8');
