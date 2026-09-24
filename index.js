@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 
-import ogs from 'open-graph-scraper'
+import fs from 'node:fs/promises'
+import {parseArgs} from 'node:util'
+import ogs from 'open-graph-scraper-lite'
+
+const {positionals} = parseArgs({allowPositionals: true})
+
 const promises = []
-process.stdin.setEncoding('utf-8');
-for await (const url of process.stdin) {
+process.stdin.setEncoding('utf-8')
+for await (const filePath of positionals) {
     promises.push(
-        ogs({url: url.trim()})
-            .then(({error, result}) => {
+        fs.readFile(filePath, {encoding: 'utf8'})
+          .then(html => ogs({html}))
+          .then(({error, result}) => {
                 const s = JSON.stringify(result)
                 if (error) {
                     throw new Error(s)

@@ -13,7 +13,7 @@
       packages.default = pkgs.buildNpmPackage {
         dontNpmBuild = true;
         name = "open-grapher";
-        npmDepsHash = "sha256-71qi5FmVVbWfCwmefhHKZfzSHFDf+LsQu/q13zPl0ZI=";
+        npmDepsHash = "sha256-v//TAmoBaoJafbZ5NDc8o0JcoFbzSgsmGDa50lgoWmw=";
         src = ./.;
       };
       apps.default = {
